@@ -9,36 +9,42 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import React from "react";
 
-function SecretTextField() {
-  const [showPassword, setShowPassword] = React.useState(false);
+export type secretTextFieldProps = {
+  label: string;
+  id: string;
+};
 
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
+function SecretTextField({ label, id }: secretTextFieldProps) {
+  const [showSecret, setShowSecret] = React.useState(false);
 
-  const handleMouseDownPassword = (
+  const handleClickShowSecret = () => setShowSecret((show) => !show);
+
+  const handleMouseDownSecret = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
   };
 
   return (
-    <FormControl sx={{ m: 0.5, width: "26ch" }} variant="outlined">
-      <InputLabel htmlFor="filled-adornment-password">Password</InputLabel>
+    <FormControl variant="outlined">
+      <InputLabel htmlFor="filled-adornment-sercret">{label}</InputLabel>
       <OutlinedInput
-        id="outlined-adornment-password"
-        type={showPassword ? "text" : "password"}
+        id={id}
+        type={showSecret ? "text" : "password"}
+        fullWidth
         endAdornment={
           <InputAdornment position="end">
             <IconButton
-              aria-label="toggle password visibility"
-              onClick={handleClickShowPassword}
-              onMouseDown={handleMouseDownPassword}
+              aria-label="toggle sercret visibility"
+              onClick={handleClickShowSecret}
+              onMouseDown={handleMouseDownSecret}
               edge="end"
             >
-              {showPassword ? <VisibilityOff /> : <Visibility />}
+              {showSecret ? <VisibilityOff /> : <Visibility />}
             </IconButton>
           </InputAdornment>
         }
-        label="Password"
+        label={label}
       />
     </FormControl>
   );

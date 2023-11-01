@@ -1,31 +1,31 @@
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
 import React from "react";
 import "./Login.scss";
 import SecretTextField from "../Shared/SecretTextField";
 import { Button } from "@mui/material";
 
 function Login() {
+  const secretTextfieldProps = {
+    label: "Password",
+    id: "outlined-adornment-password",
+  };
+
   return (
-    <Box
-      id="LoginContainer"
-      component="form"
-      noValidate
-      autoComplete="off"
-      sx={{
-        display: "inline-flex",
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
-      }}
-    >
+    <Stack spacing={2}>
+      <Typography component="h1" variant="h5">
+        Sign in
+      </Typography>
       <TextField
-        sx={{ m: 0.5 }}
         id="userNameTextField"
         label="Username"
         variant="outlined"
+        fullWidth
       />
-      <SecretTextField />
-    </Box>
+      <SecretTextField {...secretTextfieldProps} />
+      <Button variant="contained">Login</Button>
+    </Stack>
   );
 }
 

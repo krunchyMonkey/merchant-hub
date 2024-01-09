@@ -1,4 +1,5 @@
-import { Action } from "../interfaces/storeCommon";
+import { Reducer } from 'react';
+import { Action } from '../interfaces/storeCommon';
 
 export type UserInfoState = {
   userName?: string | undefined;
@@ -9,8 +10,8 @@ export type UserInfoStateKey = keyof UserInfoState;
 export type UserInfoStateValue = UserInfoState[UserInfoStateKey];
 
 const initialState: UserInfoState = {
-  userName: "",
-  password: "",
+  userName: '',
+  password: '',
 };
 
 export enum UserInfoActions {
@@ -21,7 +22,7 @@ export type UserInfoAction<T> = Action<UserInfoActions, T>;
 
 export function loginUser(
   infoKey: UserInfoStateKey,
-  newValue: UserInfoStateValue
+  newValue: UserInfoStateValue,
 ): UserInfoAction<UserInfoStateValue> {
   return {
     type: UserInfoActions.LoginUser,
@@ -31,3 +32,24 @@ export function loginUser(
     },
   };
 }
+
+const redcuer: Reducer<UserInfoState, UserInfoAction<unknown>> = (
+  state: UserInfoState,
+  action: UserInfoAction<unknown>,
+) => {
+  const key = action.payload.key as UserInfoStateKey;
+  switch (action.type) {
+    case UserInfoActions.LoginUser:
+      if (state[key] === action.payload.value) return state;
+      return {
+        ...state,
+        [key]: action.payload.value,
+      };
+    default:
+      throw new Error('Merchant Details Context failed to update');
+  }
+};
+
+const userInfoReducer = { initialState, redcuer };
+
+export default userInfoReducer;

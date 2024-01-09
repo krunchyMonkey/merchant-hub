@@ -1,7 +1,7 @@
-import { Dispatch, ReactChild, ReactChildren } from "react";
+import { Dispatch, ReactElement } from 'react';
 
 export interface StoreProps {
-  children?: ReactChildren | ReactChild | undefined;
+  children?: ReactElement | undefined;
 }
 
 export interface Action<T, V> {

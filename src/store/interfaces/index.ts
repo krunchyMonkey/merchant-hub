@@ -1,1 +1,1 @@
-export type { StoreProps, Action, SliceState } from "./storeCommon";
+export type { StoreProps, Action, SliceState } from './storeCommon';

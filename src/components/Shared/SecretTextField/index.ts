@@ -1,3 +1,3 @@
-import SecretTextField from "./SecretTextField";
+import SecretTextField from './SecretTextField';
 
 export default SecretTextField;

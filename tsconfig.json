@@ -12,6 +12,11 @@
     "lib": ["es6", "dom"],
     "target": "ES5",
     "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@hooks/*" : ["src/hooks/*"],
+      "@store/*": ["src/store/*"]
+    },
   },
   "exclude": ["node_modules", "dist"]
 }

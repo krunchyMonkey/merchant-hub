@@ -2,7 +2,7 @@ import { Reducer } from 'react';
 import { Action } from '../interfaces/storeCommon';
 
 export type UserInfoState = {
-  userName?: string | undefined;
+  username?: string | undefined;
   password?: string | undefined;
 };
 
@@ -10,7 +10,7 @@ export type UserInfoStateKey = keyof UserInfoState;
 export type UserInfoStateValue = UserInfoState[UserInfoStateKey];
 
 const initialState: UserInfoState = {
-  userName: '',
+  username: '',
   password: '',
 };
 
@@ -20,7 +20,7 @@ export enum UserInfoActions {
 
 export type UserInfoAction<T> = Action<UserInfoActions, T>;
 
-export function loginUser(
+export function updateLoginInfo(
   infoKey: UserInfoStateKey,
   newValue: UserInfoStateValue,
 ): UserInfoAction<UserInfoStateValue> {

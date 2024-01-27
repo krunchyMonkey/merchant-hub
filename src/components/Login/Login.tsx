@@ -1,14 +1,22 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import React, { useState } from 'react';
 import './Login.scss';
 import { Button } from '@mui/material';
+import useUserLogin from 'src/hooks/UseUserLogin';
 import SecretTextField from '../Shared/SecretTextField';
 
 function Login() {
   const [userName, setUserName] = useState('');
   const [password, setpassword] = useState('');
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  const { dispatchUserLogin } = useUserLogin();
+  const handleLogin = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    dispatchUserLogin(userName, password);
+  };
 
   return (
     <Stack spacing={2}>
@@ -28,7 +36,7 @@ function Login() {
         label="Password"
         id="outlined-adornment-password"
       />
-      <Button variant="contained">Login</Button>
+      <Button variant="contained" onClick={handleLogin}>Login</Button>
     </Stack>
   );
 }

@@ -1,3 +1,5 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+/* eslint-disable no-tabs */
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const { merge } = require('webpack-merge');

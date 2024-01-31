@@ -11,6 +11,9 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:jsx-a11y/recommended',
     'plugin:storybook/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
   ],
   settings: {
     react: {

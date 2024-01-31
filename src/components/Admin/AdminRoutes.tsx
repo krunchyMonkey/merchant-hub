@@ -1,14 +1,17 @@
-import { Login } from '@mui/icons-material';
+import Login from 'src/components/Login/Login';
 import {
-  Route, Routes,
+  Navigate,
+  Route, BrowserRouter as Router, Routes,
 } from 'react-router-dom';
 
 function AdminRoutes() {
   return (
-    <Routes>
-      <Route path="login" element={<Login/>} />
-      <Route />
-    </Routes>
+    <Router>
+      <Routes>
+        <Route index path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
   );
 }
 
